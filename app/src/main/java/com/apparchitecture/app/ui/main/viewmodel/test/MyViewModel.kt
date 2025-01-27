@@ -46,24 +46,26 @@ class MyViewModel @Inject constructor(
                 _uiState.update {
                     MyUiState.Success(response)
                 }
+
+                println(response)
             }
 
-            processUseCaseResponse(
-                myGetCharactersUseCase("test")
-            ){ charactersResponse ->
-
-                charactersResponse?.results?.forEach {
-                    println(it.name)
-                }
-
-            }
+//            processUseCaseResponse(
+//                myGetCharactersUseCase("test")
+//            ){ charactersResponse ->
+//
+//                charactersResponse?.results?.forEach {
+//                    println(it.name)
+//                }
+//
+//            }
 
         }
     }
 
     fun onAddClicked() {
         viewModelScope.launch {
-            addUseCase("prueba")
+            addUseCase("prueba ${System.currentTimeMillis()}")
             _uiState.update {
                 MyUiState.SuccessInsert
             }

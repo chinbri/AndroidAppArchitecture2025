@@ -14,9 +14,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.apparchitecture.app.ui.main.viewmodel.test.MyViewModel
 
 @Composable
 fun MainScreen(
+    viewModel: MyViewModel = hiltViewModel(),
     onClickDetail: (Int) -> Unit
 ){
 
@@ -42,6 +45,26 @@ fun MainScreen(
             }
         ) {
             Text(text = "Detail")
+        }
+
+        Spacer(modifier = Modifier.height(50.dp))
+
+        Button(
+            onClick = {
+                viewModel.test()
+            }
+        ) {
+            Text(text = "Test")
+        }
+
+        Spacer(modifier = Modifier.height(50.dp))
+
+        Button(
+            onClick = {
+                viewModel.onAddClicked()
+            }
+        ) {
+            Text(text = "Add")
         }
 
     }

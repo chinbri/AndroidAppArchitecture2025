@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: MyViewModel = hiltViewModel()
 
                     AppContent(
                         onBackPressed = { onBackPressedDispatcher.onBackPressed() }
