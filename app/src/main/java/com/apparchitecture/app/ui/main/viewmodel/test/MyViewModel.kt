@@ -64,6 +64,10 @@ class MyViewModel @Inject constructor(
     }
 
     fun onAddClicked() {
+        _uiState.update {
+            MyUiState.Loading
+        }
+
         viewModelScope.launch {
             addUseCase("prueba ${System.currentTimeMillis()}")
             _uiState.update {
